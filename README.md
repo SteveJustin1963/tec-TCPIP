@@ -1,5 +1,5 @@
 # tec-TCPIP
-TCP/IP stack module intergrated to tec1 with ASM and MINT
+ESP8266 TCP/IP stack module intergrated to tec1 with ASM and MINT
 
 
 ## ref 
