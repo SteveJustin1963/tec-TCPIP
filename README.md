@@ -1,5 +1,5 @@
 # tec-TCPIP
-TEC-1 TCP/IP Forth protocol stack
+TCP/IP stack module intergrated to tec1 with ASM and MINT
 
 
 ## ref 
