@@ -18,6 +18,7 @@ Other software tools that can be used to program the ESP8266 include the Eclipse
 
 ## test
 - use this web site https://www.exploreembedded.com/wiki/Arduino_Support_for_ESP8266_with_simple_test_code
+- https://github.com/SteveJustin1963/tec-TCPIP/tree/master/docs/simple_test_code
 - use the bitbangport of the tec-1 at 4800 and MINT
 
 
