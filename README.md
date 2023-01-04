@@ -17,5 +17,6 @@ ESP8266 TCP/IP stack module intergrated to tec1 with ASM and MINT
 - https://cdn.sparkfun.com/datasheets/Wireless/WiFi/Command%20Doc.pdf
 - https://github.com/esp8266/esp8266-wiki/wiki
 - https://github.com/jcmvbkbc/gcc-xtensa
-- 
+- https://www.exploreembedded.com/wiki/Arduino_Support_for_ESP8266_with_simple_test_code
+
 
