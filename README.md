@@ -96,8 +96,8 @@ To send data over the TCP or UDP connection, you can use the AT+CIPSEND command.
 
  For example, to send a simple text message over the TCP connection, you could use the following command:
 ```
-AT+CIPSEND=6
-Hello!
+AT+CIPSEND=16
+TEC1 says Hello!
 ```
  
 To receive data over the TCP or UDP connection, you can use the AT+CIPRECV command. This command takes the following arguments:
