@@ -15,7 +15,18 @@ In addition to the Arduino IDE, the ESP8266 can also be programmed using other s
 
 Other software tools that can be used to program the ESP8266 include the Eclipse Integrated Development Environment (IDE) and the Visual Studio Code editor. These tools provide a more advanced development environment and can be used to create more complex applications for the ESP8266.
 
+## AT commands that can be used to control the ESP8266 over the serial connection:
+- AT: This command is used to test the connection to the ESP8266. If the connection is working correctly, the ESP8266 should respond with an "OK" message.
+- AT+RST: This command resets the ESP8266.
+- AT+GMR: This command displays the version information for the ESP8266 firmware. 
+- AT+CWMODE=<mode>: This command sets the WiFi mode of the ESP8266. The mode can be set to 1 (station mode), 2 (AP mode), or 3 (station+AP mode).
+- AT+CWJAP=<ssid>,<pwd>: This command connects the ESP8266 to a WiFi network with the specified SSID (service set identifier) and password.
+- AT+CWLAP: This command lists the available WiFi networks in the area.
+- AT+CIPSTART=<type>,<addr>,<port>: This command starts a communication connection with a remote server. The type can be "TCP" or "UDP", the addr is the IP address or domain name of the server, and the port is the port number on the server.
+- AT+CIPSEND=<len>: This command sends data to the server over the active connection. The len parameter is the length of the data to be sent.
+- AT+CIPCLOSE: This command closes the active connection.
 
+This is just a small sample of the AT commands that are available for the ESP8266. There are many more commands that can be used to configure and control the device. You can find more information about the available AT commands in the ESP8266 documentation.
 
 ## test
 - use this web site https://www.exploreembedded.com/wiki/Arduino_Support_for_ESP8266_with_simple_test_code
