@@ -77,7 +77,43 @@ In the line with variables I, SSID, and RSSI are being used to display informati
 
 ## convert test.f to test..mint
 
+## lets get on the internet with the tec1
+ 
+To use the ESP8266 for TCP or UDP communication, you will need to use the AT commands provided by the ESP8266 firmware. These commands allow you to configure the ESP8266, send and receive data over the network, and perform other tasks. Here are some examples of how you can use the AT commands to establish a TCP or UDP connection with the ESP8266: 
 
+To establish a TCP connection, you can use the AT+CIPSTART command. This command takes the following arguments:
+- "TCP" or "UDP" to specify the protocol
+- The remote IP address and port number to connect to
+- The local IP address and port number to use
+- "0" to close the connection after the data is sent, or "1" to keep the connection open
+
+example, to establish a TCP connection to a remote server at IP address 192.168.1.100 on port 80, you could use the following command:
+```AT+CIPSTART="TCP","192.168.1.100",80```
+
+To send data over the TCP or UDP connection, you can use the AT+CIPSEND command. This command takes the following arguments:
+- The number of bytes of data to send
+- The data itself, in ASCII or hexadecimal format
+
+ For example, to send a simple text message over the TCP connection, you could use the following command:
+```
+AT+CIPSEND=6
+Hello!
+```
+ 
+To receive data over the TCP or UDP connection, you can use the AT+CIPRECV command. This command takes the following arguments:
+- The maximum number of bytes to receive
+- The timeout period in seconds
+
+To receive up to 1024 bytes of data over the TCP connection with a timeout of 10 seconds, you could use the following command:
+```AT+CIPRECV=1024,10```
+
+To close the TCP or UDP connection, you can use the AT+CIPCLOSE command. This command takes no arguments and simply closes the current connection.
+For example, to close the TCP connection, you can use the following command: ```AT+CIPCLOSE```
+
+You can also use the AT+CIPMUX command to enable multiple connections on the ESP8266. With multiple connections enabled, you can use the AT+CIPSERVER command to start a TCP server on the ESP8266, which allows it to accept incoming connections from clients.
+ 
+ 
+ 
 
 ## ref 
 
