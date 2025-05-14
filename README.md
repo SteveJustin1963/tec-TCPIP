@@ -1,3 +1,9 @@
+https://core-electronics.com.au/enc28j60-ethernet-lan-network-module.html?gad_source=1&gad_campaignid=17417005429&gbraid=0AAAAADlEpP4lZgD6VQR9WW1M241iK5vSX&gclid=CjwKCAjw24vBBhABEiwANFG7y-MgFZBhww8qVogrerN-_fBCL2bJOUB28TFlYR4eJxCVbPM_B35SCRoCUDEQAvD_BwE
+
+![image](https://github.com/user-attachments/assets/755346ef-ae13-44b6-b44e-3bc395819326)
+
+
+
 To control the ENC28J60 Ethernet controller using bit-bang SPI in MINT, we need to implement a software-based SPI protocol to communicate with the chip, as MINT does not have native SPI hardware support. The ENC28J60 requires precise timing for SPI communication, and MINT's minimalist design (16-bit integers, byte-code interpreter, and limited memory) means we must optimize for efficiency while adhering to the constraints outlined in the SJ Manual.
 
 ### Approach
