@@ -285,3 +285,66 @@ To handle packet reception or transmission:
 ### more work
 e.g. handling interrupts, specific Ethernet protocols
 
+
+
+///////////////
+
+
+
+Below is the MINT code for controlling the ENC28J60 Ethernet controller using bit-bang SPI, as provided in the previous response. The code is presented in its entirety, formatted as a single block for clarity, with comments on separate lines as required by MINT. This code initializes the ENC28J60, performs SPI communication, and includes a test function to read the chip's revision ID (EREVID).
+
+```
+:A
+// SPI Initialize: Set CS high, SCK low, MOSI low
+1 c /O 0 s /O 0 m /O
+;
+:B
+// SPI Send/Receive Byte: Input byte in b, returns received byte in r
+b n! 0 r! 8 ( n 7 } t! t 1 & m /O 1 s /O 1 () i /I 1 & u! r { u | r! 0 s /O 1 () n { n! ) r
+;
+:C
+// SPI Start: CS low
+0 c /O
+;
+:D
+// SPI End: CS high
+1 c /O
+;
+:E
+// ENC28J60 Write Control Register: Inputs: register address (a), value (v)
+a 40 | b! C b B v B D
+;
+:F
+// ENC28J60 Read Control Register: Input: register address (a), returns value in r
+a 00 | b! C b B 0 B r! D r
+;
+:G
+// ENC28J60 Soft Reset: Send soft reset command (0xFF)
+C #FF B D 100 ()
+;
+:H
+// ENC28J60 Initialize
+A G 0 a! #00 v! E 1 a! #00 v! E 2 a! #FF v! E 3 a! #07 v! E 4 a! #00 v! E 5 a! #00 v! E #38 a! #80 v! E #C0 a! #0D v! E #C2 a! #32 v! E #E0 a! #00 v! E #E1 a! #04 v! E #E2 a! #A3 v! E #E3 a! #12 v! E #E4 a! #34 v! E #E5 a! #56 v! E #08 a! #01 v! E
+;
+:I
+// Test: Read EREVID
+#1B a! F .
+;
+:J
+// Port definitions: CS=0x10, SCK=0x11, MOSI=0x12, MISO=0x13
+10 c! 11 s! 12 m! 13 i!
+;
+J H I
+```
+
+### Notes
+- **Formatting**: Each function is written on a single line without comments, as required for uploading to the MINT interpreter. Comments are included here for clarity but must be stripped before loading.
+- **Execution**: The code runs automatically by calling `J` (port definitions), `H` (ENC28J60 initialization), and `I` (test EREVID read).
+- **Port Assignments**:
+  - CS: 0x10
+  - SCK: 0x11
+  - MOSI: 0x12
+  - MISO: 0x13
+- **Usage**: Upload the code to the MINT interpreter. It initializes the ENC28J60 and prints the EREVID value (e.g., 6 for 0x06) to verify communication.
+- **Customization**: Adjust delays (`1()` in `B`, `100()` in `G`) based on your system's timing. Modify port assignments in `J` if different I/O ports are used.
+
