@@ -37,7 +37,7 @@ To control the ENC28J60 Ethernet controller using bit-bang SPI in MINT, we need 
 ### MINT Code for ENC28J60 Control
 Below is the MINT code to initialize and control the ENC28J60 using bit-bang SPI. The code includes functions for SPI communication, ENC28J60 register access, and basic initialization. Comments are placed on separate lines as required.
 
-
+```
 :A
 // SPI Initialize: Set CS high, SCK low, MOSI low
 1 c /O
@@ -180,6 +180,9 @@ F .
 J
 H
 I
+
+```
+
 
 
 ### Explanation of the Code
